@@ -1,0 +1,42 @@
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        retry:
+          enabled: false
+    host: 47.109.94.22
+    port: 5672
+    username: root
+    password: root
+#    publisher-confirm-type: correlated
+  redis:
+    lettuce:
+      pool:
+        max-idle: 20
+        max-active: 20
+        min-idle: 1
+        max-wait: 20000
+    timeout: 600000
+    cluster:
+      nodes:
+        - 47.109.94.22:6371
+        - 47.109.94.22:6372
+        - 47.109.94.22:6373
+        - 47.109.94.22:6374
+        - 47.109.94.22:6375
+        - 47.109.94.22:6376
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/seckill?characterEncoding=UTF-8&serverTimezone=UTC
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 2
+    minIdle: 2
+    maxActive: 20
+    maxWait: 30000
+
+server:
+  port: 8080
+
+
